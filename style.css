@@ -1,0 +1,737 @@
+/* --- 0. Global Reset and Variables (NEW, BOLDER COLORS) --- */
+:root {
+    --color-primary: #00BCD4;       /* Vibrant Aqua/Teal (Main Action Color) */
+    --color-secondary: #FF9800;     /* Orange/Amber for emphasis/success/attention */
+    --color-accent: #FFC107;        /* Yellow for stars/highlights */
+    --color-dark: #1E3A5F;          /* Deep Navy (Text and Footer) */
+    
+    /* *** MAIN BACKGROUND COLORS *** */
+    --color-page-bg: #E5F5E5;       /* Soft Mint Green (Ensures non-white body background) */
+    --color-section-bg: #FFFBE5;    /* Soft Light Yellow (Contrasting Section Background) */
+    
+    --color-white: #FFFFFF;
+    --font-primary: 'Helvetica Neue', Arial, sans-serif;
+    --spacing-xs: 8px;
+    --spacing-sm: 15px;
+    --spacing-md: 25px;
+    --spacing-lg: 50px;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-dark);
+    /* *** MAIN BACKGROUND IS NOW SOFT MINT GREEN *** */
+    background-color: var(--color-page-bg); 
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm); 
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* --- 1. Top Bar & Navbar --- */
+
+.top-bar {
+    background-color: var(--color-dark); 
+    color: var(--color-white);
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-buttons {
+    display: none; 
+}
+
+.top-bar-cta {
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-left: 8px;
+    transition: background-color 0.3s;
+}
+
+.top-bar-call {
+    background-color: var(--color-primary); 
+}
+
+.top-bar-whatsapp {
+    background-color: var(--color-secondary); 
+}
+
+.top-bar-call:hover {
+    background-color: #00A3B5; 
+}
+
+.top-bar-whatsapp:hover {
+    background-color: #E68900; 
+}
+
+.navbar {
+    /* Navbar remains white for maximum readability against the dark top bar */
+    background-color: var(--color-white);
+    border-bottom: 1px solid #EEEEEE; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.desktop-nav {
+    display: none; 
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.mobile-nav-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: var(--color-dark);
+    overflow-x: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.mobile-nav-overlay a, .mobile-nav-overlay button {
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--color-page-bg);
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-overlay a:hover {
+    background-color: var(--color-primary);
+}
+
+.full-width-cta {
+    margin-top: 20px;
+    border-radius: 0 !important;
+}
+
+
+/* --- 2. CTA Buttons (General Styles) --- */
+
+.cta-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-cta {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4); 
+}
+
+.primary-cta:hover {
+    background-color: #00A3B5;
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.secondary-cta:hover {
+    background-color: #E68900;
+}
+
+.nav-cta {
+    margin-left: var(--spacing-sm);
+}
+
+.cta-link {
+    color: var(--color-dark);
+    font-weight: 600;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* --- 3. Hero Section (MODIFIED) --- */
+
+.hero-dynamic {
+    /* *** HERO SECTION IS NOW A SOFT GREEN/YELLOW GRADIENT *** */
+    background: linear-gradient(to bottom, var(--color-section-bg), var(--color-page-bg)); 
+    background-size: cover;
+    background-position: center;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tagline-sub {
+    color: var(--color-secondary); 
+    font-weight: 600;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    color: #5A6A7D; 
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* --- 4. Section Styles (MODIFIED) --- */
+
+.section-padded {
+    padding: var(--spacing-lg) 0;
+}
+
+.bg-light {
+    /* *** LIGHT SECTIONS ARE NOW SOFT LIGHT YELLOW *** */
+    background-color: var(--color-section-bg);
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+    color: #6C757D;
+}
+
+/* --- 5. Service Cards --- */
+
+.service-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-md);
+}
+
+.service-card {
+    /* Service cards remain white to pop against the colored background */
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    border-top: 5px solid var(--color-secondary); 
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.icon-large {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--color-primary); 
+    display: block;
+    margin-top: var(--spacing-sm);
+}
+
+/* --- 6. 6-Step Process (Timeline) --- */
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+}
+
+.timeline-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border-left: 3px solid var(--color-secondary); 
+    padding-left: var(--spacing-sm);
+    position: relative;
+    /* Timeline step remains white to stand out */
+    background-color: var(--color-white); 
+    padding: var(--spacing-sm);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.step-icon {
+    position: absolute;
+    left: -18px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    /* Match page background for floating effect */
+    box-shadow: 0 0 0 5px var(--color-page-bg); 
+}
+
+.step-content h4 {
+    color: var(--color-secondary); 
+    font-size: 1.1rem;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+}
+
+/* --- 7. Pricing Cards --- */
+
+.pricing-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-md);
+}
+
+.pricing-card {
+    /* Pricing cards remain white to stand out */
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pricing-card h3 {
+    color: var(--color-dark); 
+    margin-bottom: var(--spacing-xs);
+}
+
+.capacity {
+    color: var(--color-primary); 
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary); 
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-card ul li {
+    padding: 8px 0;
+    /* Use page background for dashed line separation */
+    border-bottom: 1px dashed var(--color-page-bg); 
+}
+
+.pricing-card ul li i.fa-check-circle {
+    color: var(--color-secondary); 
+    margin-right: 10px;
+}
+
+.pricing-card ul li.disabled {
+    color: #ADB5BD;
+    text-decoration: line-through;
+}
+
+.pricing-card ul li i.fa-times-circle {
+    color: #DC3545;
+    margin-right: 10px;
+}
+
+.featured {
+    border: 3px solid var(--color-secondary); 
+    transform: scale(1.05);
+}
+
+/* --- 8. Reviews --- */
+
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-md);
+}
+
+.review-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stars {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.reviewer {
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #6C757D;
+}
+
+/* --- 9. CTA Strip --- */
+
+.cta-strip {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+}
+
+.cta-strip-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.cta-strip h3 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+
+/* --- 10. Footer --- */
+
+.footer-main {
+    background-color: var(--color-dark); 
+    color: var(--color-page-bg);
+    padding-top: var(--spacing-lg);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col h4 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.footer-col p, .footer-col a {
+    color: #ADB5BD;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.95rem;
+}
+
+.footer-col a:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    color: #ADB5BD;
+}
+
+/* --- 11. Modal (Form) Styles --- */
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    margin: 5% auto; 
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 500px; 
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+#quoteForm label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#quoteForm input[type="text"],
+#quoteForm input[type="tel"],
+#quoteForm input[type="number"],
+#quoteForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+}
+
+.modal-info {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin-top: 10px;
+}
+
+
+/* --- 12. Floating CTA for Mobile --- */
+
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 1500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.call-btn {
+    background-color: var(--color-primary); 
+    left: 20px;
+}
+
+.whatsapp-btn {
+    background-color: var(--color-secondary); 
+    right: 20px;
+}
+
+
+/* --- 13. Desktop/Tablet Responsiveness --- */
+
+@media (min-width: 768px) {
+    /* General Tablet/Desktop Spacing */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    /* Top Bar Modification for Desktop */
+    .top-bar-content p {
+        display: none; 
+    }
+    .top-bar-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .top-bar-content {
+        justify-content: space-between; 
+    }
+    .top-bar-content:has(> p:only-child) {
+        justify-content: center;
+    }
+
+
+    /* Navbar */
+    .menu-toggle {
+        display: none; 
+    }
+    .desktop-nav {
+        display: flex; 
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+    .desktop-nav a {
+        color: var(--color-dark);
+        font-weight: 500;
+        padding: 5px 10px;
+    }
+
+    /* Hero Section */
+    .hero-dynamic {
+        text-align: left;
+        min-height: 70vh;
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero-content {
+        margin: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: row; 
+        justify-content: flex-start;
+    }
+
+    /* Service Cards */
+    .service-cards-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    /* Timeline */
+    .timeline-container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm); 
+    }
+    .timeline-step {
+        width: 30%; 
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--color-secondary); 
+        padding-top: var(--spacing-md); 
+        align-items: flex-start;
+        background-color: transparent; 
+        box-shadow: none;
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+    .step-icon {
+        left: 50%;
+        top: -15px;
+        transform: translateX(-50%);
+        box-shadow: 0 0 0 5px var(--color-page-bg); 
+    }
+    .step-content {
+        text-align: center;
+    }
+
+    /* Pricing */
+    .pricing-cards-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .featured {
+        transform: scale(1.0); 
+    }
+
+    /* Reviews */
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    /* CTA Strip */
+    .cta-strip-content {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr; 
+    }
+
+    /* Hide Mobile Floating CTAs */
+    .floating-cta {
+        display: none;
+    }
+}
